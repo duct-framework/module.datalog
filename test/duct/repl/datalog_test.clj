@@ -15,7 +15,7 @@
   (.delete file))
 
 (defn- create-temp-dir [name]
-  (.toFile (Files/createTempDirectory name(make-array FileAttribute 0))))
+  (.toFile (Files/createTempDirectory name (make-array FileAttribute 0))))
 
 (deftest test-user-functions
   (let [dir    (create-temp-dir "datalevin")
@@ -30,4 +30,4 @@
       (is (= #{["foobar"]}
              (datalog/q '[:find ?name :where [?e :test/name ?name]])))
       (finally
-        (delete-recursively dir))))) 
+        (delete-recursively dir)))))
