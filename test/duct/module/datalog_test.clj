@@ -31,8 +31,10 @@
                          "dtlv://datalevin:datalevin@localhost"})))))
   (testing "test config"
     (is (= {:duct.database.datalog/datalevin
-            {:dir "test-db"
-             :schema {:foo {:db/cardinality :db.cardinality/many}}}}
+            {:dir (ig/ref ::module/temp-dir)
+             :schema {:foo {:db/cardinality :db.cardinality/many}}}
+            ::module/temp-dir
+            {:prefix "duct-datalevin"}}
            (-> {::module/datalevin
                 {:schema {:foo {:db/cardinality :db.cardinality/many}}}}
                (ig/expand (ig/deprofile [:test]))
