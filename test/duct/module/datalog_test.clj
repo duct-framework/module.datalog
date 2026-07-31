@@ -18,7 +18,12 @@
   (testing "repl config"
     (is (= {:duct.database.datalog/datalevin
             {:dir "db"
-             :schema {:foo {:db/cardinality :db.cardinality/many}}}}
+             :schema {:foo {:db/cardinality :db.cardinality/many}}}
+            :duct.repl/refers
+            '{conn     duct.repl.datalog/conn
+              db       duct.repl.datalog/db
+              q        duct.repl.datalog/q
+              transact duct.repl.datalog/transact}}
            (-> {::module/datalevin
                 {:schema {:foo {:db/cardinality :db.cardinality/many}}}}
                (ig/expand (ig/deprofile [:repl]))
