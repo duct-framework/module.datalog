@@ -1,0 +1,26 @@
+{:duct.module.datalog/datalevin
+ {:duct/vars
+  {datalevin-dir
+   {:arg datalevin-dir
+    :env DATALEVIN_DIR
+    :doc "The Datalevin dir or dtlv URL"}}
+  :doc
+  "Adds components to access a [Datalevin][1] database. Accepts the following
+  options:
+ 
+  - `:schema` - an optional Datalevin schema for the database
+  
+  In the `:repl` profile, it adds several convenience functions to the REPL:
+  
+  - `(conn)` - returns the database connection
+  - `(db)`   - returns a database instance
+  - `(q query & inputs)` - query with the database as the first input
+  - `(transact tx-data)` - apply a transaction to the database
+  
+  The database location depends on the profile as well:
+  
+  - `:main` - the value of the `datalevin-dir` var
+  - `:repl` - a local database in the `db` directory
+  - `:test` - a temporary directory that cleaned up when the system is halted
+  
+  [1]: https://datalevin.org/"}}
