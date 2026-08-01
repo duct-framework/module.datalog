@@ -7,7 +7,7 @@
   (ig/profile
    :main
    {:duct.database.datalog/datalevin
-    {:dir (ig/var 'datalevin-url), :schema schema}}
+    {:dir (ig/var 'datalevin-dir), :schema schema}}
    :repl
    {:duct.database.datalog/datalevin
     {:dir "db", :schema schema}
