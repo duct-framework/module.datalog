@@ -9,6 +9,7 @@ Databases currently supported:
 
 [duct]:      https://github.com/duct-framework/duct
 [integrant]: https://github.com/weavejester/integrant
+[datomic]:   https://www.datomic.com/
 [datalevin]: https://datalevin.org/
 
 ## Installation
