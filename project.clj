@@ -1,4 +1,4 @@
-(defproject org.duct-framework/module.datalog "0.1.0-SNAPSHOT"
+(defproject org.duct-framework/module.datalog "0.1.0"
   :description "Duct module for working with Datalog databases"
   :url "https://github.com/duct-framework/module.datalog"
   :license {:name "Eclipse Public License"
