@@ -1,4 +1,4 @@
-# Duct module.datalog
+# Duct module.datalog [![Build Status](https://github.com/duct-framework/module.datalog/actions/workflows/test.yml/badge.svg)](https://github.com/duct-framework/module.datalog/actions/workflows/test.yml)
 
 A [Duct][] module that adds [Integrant][] keys for a [Datomic][]-like
 database.
