@@ -28,14 +28,17 @@
   (ig/profile
    :main
    {:duct.database.datalog/datahike
-    {:store (ig/var 'datahike-store)}}
+    {:store (ig/var 'datahike-store)
+     :value-caps :default}}
    :repl
    {:duct.database.datalog/datahike
     {:store {:backend :file
              :path    "db"
-             :id      #uuid "c7cdd653-4895-43b2-b331-f9b5ddf1408c"}}
+             :id      #uuid "c7cdd653-4895-43b2-b331-f9b5ddf1408c"}
+     :value-caps :default}
     :duct.repl/refers repl-refers}
    :test
    {:duct.database.datalog/datahike
     {:store {:backend :memory
-             :id      #uuid "5161e8da-ecfa-43b4-beff-7c82aa23ad96"}}}))
+             :id      #uuid "5161e8da-ecfa-43b4-beff-7c82aa23ad96"}
+     :value-caps :default}}))
