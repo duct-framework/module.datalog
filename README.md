@@ -5,11 +5,13 @@ database.
 
 Databases currently supported:
 
+- [Datahike][]
 - [Datalevin][]
 
 [duct]:      https://github.com/duct-framework/duct
 [integrant]: https://github.com/weavejester/integrant
 [datomic]:   https://www.datomic.com/
+[datahike]:  https://datahike.io/
 [datalevin]: https://datalevin.org/
 
 ## Installation
@@ -48,7 +50,24 @@ In the `:main` profile the database URL is set using a var that can be
 set via a command-line argument or via an environment variable. The
 name of the var depends on the database being used.
 
+### Datahike
+
+Requires the `org.duct-framework/database.datalog.datahike`
+dependency.
+
+In the `:main` profile the Datahike store can be set by supplying a
+string of edn to either:
+
+- `--datahike-store` command-line argument
+- `DATAHIKE_STORE` environment variable
+
+Further customization can be achieved by overriding the
+`:duct.database.datalog/datahike` key.
+
 ### Datalevin
+
+Requires the `org.duct-framework/database.datalog.datalevin`
+dependency.
 
 Accepts an extra `:schema` argument:
 
@@ -62,6 +81,9 @@ In the `:main` profile the Datalevin connection can be set via:
 
 - `--datalevin-dir` command-line argument
 - `DATALEVIN_DIR` environment variable
+
+Further customization can be achieved by overriding the
+`:duct.database.datalog/datalevin` key.
 
 ## License
 
