@@ -18,11 +18,11 @@ Databases currently supported:
 
 Add the following dependency to your deps.edn file:
 
-    org.duct-framework/module.datalog {:mvn/version "0.1.0"}
+    org.duct-framework/module.datalog {:mvn/version "0.2.0"}
 
 Or to your Leiningen project file:
 
-    [org.duct-framework/module.datalog "0.1.0"]
+    [org.duct-framework/module.datalog "0.2.0"]
 
 ## Usage
 
