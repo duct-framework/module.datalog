@@ -31,8 +31,11 @@
     {:store (ig/var 'datahike-store)}}
    :repl
    {:duct.database.datalog/datahike
-    {:store {:backend :file, :path "db"}}
+    {:store {:backend :file
+             :path    "db"
+             :id      #uuid "c7cdd653-4895-43b2-b331-f9b5ddf1408c"}}
     :duct.repl/refers repl-refers}
    :test
    {:duct.database.datalog/datahike
-    {:store {:backend :memory}}}))
+    {:store {:backend :memory
+             :id      #uuid "5161e8da-ecfa-43b4-beff-7c82aa23ad96"}}}))
