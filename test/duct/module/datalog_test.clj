@@ -40,3 +40,31 @@
                (ig/expand (ig/deprofile [:test]))
                (ig/bind {'datalevin-dir
                          "dtlv://datalevin:datalevin@localhost"}))))))
+
+(deftest datahike-module-test
+  (testing "main config"
+    (is (= {:duct.database.datalog/datahike
+            {:store {:backend :file, :path "/var/db/datahike"}}}
+           (-> {::module/datahike {}}
+               (ig/expand (ig/deprofile [:main]))
+               (ig/bind {'datahike-store
+                         {:backend :file :path "/var/db/datahike"}})))))
+  (testing "repl config"
+    (is (= {:duct.database.datalog/datahike
+            {:store {:backend :file, :path "db"}}
+            :duct.repl/refers
+            '{conn     duct.repl.datalog/conn
+              db       duct.repl.datalog/db
+              q        duct.repl.datalog/q
+              transact duct.repl.datalog/transact}}
+           (-> {::module/datahike {}}
+               (ig/expand (ig/deprofile [:repl]))
+               (ig/bind {'datahike-store
+                         {:backend :file :path "/var/db/datahike"}})))))
+  (testing "test config"
+    (is (= {:duct.database.datalog/datahike
+            {:store {:backend :memory}}}
+           (-> {::module/datahike {}}
+               (ig/expand (ig/deprofile [:test]))
+               (ig/bind {'datahike-store
+                         {:backend :file :path "/var/db/datahike"}}))))))

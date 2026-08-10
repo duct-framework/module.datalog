@@ -22,5 +22,35 @@
   - `:main` - the value of the `datalevin-dir` var
   - `:repl` - a local database in the `db` directory
   - `:test` - a temporary directory that cleaned up when the system is halted
+
+  Further configuration can be achieved by overriding the
+  `:duct.database.datalog/datalevin` key.
   
-  [1]: https://datalevin.org/"}}
+  [1]: https://datalevin.org/"}
+ :duct.module.datalog/datahike
+ {:duct/vars
+  {datahike-store
+   {:arg datahike-store
+    :env DATAHIKE_STORE
+    :type :edn
+    :doc "An edn string defining the Datahike store config"}}
+  :doc
+  "Adds components to access a [Datahike][1] database. Takes no options.
+  
+  In the `:repl` profile, it adds several convenience functions to the REPL:
+  
+  - `(conn)` - returns the database connection
+  - `(db)`   - returns a database instance
+  - `(q query & inputs)` - query with the database as the first input
+  - `(transact tx-data)` - apply a transaction to the database
+ 
+  The database location depends on the profile as well:
+  
+  - `:main` - the value of the `datalevin-dir` var
+  - `:repl` - a local database in the `db` directory
+  - `:test` - an in-memory database that lasts until the system is halted
+ 
+  Further configuration can be achieved by overriding the
+  `:duct.database.datalog/datahike` key.
+  
+  [1]: https://datahike.io/"}}

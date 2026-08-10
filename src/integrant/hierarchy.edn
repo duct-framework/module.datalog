@@ -1,2 +1,3 @@
 {:duct.module.datalog/datalevin [:duct.module/datalog]
+ :duct.module.datalog/datahike [:duct.module/datalog]
  :duct.module/datalog [:duct/module]}
