@@ -44,27 +44,41 @@
 (deftest datahike-module-test
   (testing "main config"
     (is (= {:duct.database.datalog/datahike
-            {:store {:backend :file, :path "/var/db/datahike"}}}
-           (-> {::module/datahike {}}
+            {:store {:backend :file
+                     :path    "/var/db/datahike"
+                     :id      #uuid "6ef5b5c8-ccc6-44a1-b195-42d44a32bdce"}
+             :initial-tx []
+             :value-caps :default}}
+           (-> {::module/datahike {:initial-tx []}}
                (ig/expand (ig/deprofile [:main]))
-               (ig/bind {'datahike-store
-                         {:backend :file :path "/var/db/datahike"}})))))
+               (ig/bind
+                {'datahike-store
+                 {:backend :file
+                  :path "/var/db/datahike"
+                  :id #uuid "6ef5b5c8-ccc6-44a1-b195-42d44a32bdce"}})))))
   (testing "repl config"
     (is (= {:duct.database.datalog/datahike
-            {:store {:backend :file, :path "db"}}
+            {:store {:backend :file
+                     :path    "db"
+                     :id      #uuid "c7cdd653-4895-43b2-b331-f9b5ddf1408c"}
+             :initial-tx []
+             :value-caps :default}
             :duct.repl/refers
             '{conn     duct.repl.datalog/conn
               db       duct.repl.datalog/db
               q        duct.repl.datalog/q
               transact duct.repl.datalog/transact}}
-           (-> {::module/datahike {}}
+           (-> {::module/datahike {:initial-tx []}}
                (ig/expand (ig/deprofile [:repl]))
                (ig/bind {'datahike-store
                          {:backend :file :path "/var/db/datahike"}})))))
   (testing "test config"
     (is (= {:duct.database.datalog/datahike
-            {:store {:backend :memory}}}
-           (-> {::module/datahike {}}
+            {:store {:backend :memory
+                     :id #uuid "5161e8da-ecfa-43b4-beff-7c82aa23ad96"}
+             :initial-tx []
+             :value-caps :default}}
+           (-> {::module/datahike {:initial-tx []}}
                (ig/expand (ig/deprofile [:test]))
                (ig/bind {'datahike-store
                          {:backend :file :path "/var/db/datahike"}}))))))
